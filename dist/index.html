@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#073c52">
+  <meta name="description" content="向下滚动，从波光粼粼的海面潜入深蓝。一场由你掌控的海洋漫游。">
+  <title>OCEAN · Closer to the ocean</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='10' fill='%23073c52'/%3E%3Cpath d='M8 16q6-8 12 0t12 0M8 25q6-8 12 0t12 0' stroke='white' stroke-width='2' fill='none'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="style.css?v=3">
+  <script src="shader.js?v=3" defer></script>
+  <script src="app.js?v=3" defer></script>
+</head>
+<body>
+  <a href="#journey" class="skip-link">进入海洋漫游</a>
+  <div class="world" aria-hidden="true"><canvas id="ocean"></canvas><div class="shade"></div></div>
+  <div class="announcement">A new perspective begins here. <span aria-hidden="true">→</span></div>
+  <header class="header">
+    <a class="brand" href="#surface" aria-label="OCEAN，回到海面"><svg width="33" height="30" viewBox="0 0 33 30" fill="none" aria-hidden="true"><path d="M1 10C7 2 10 2 16.5 10S26 18 32 10M1 20C7 12 10 12 16.5 20S26 28 32 20" stroke="currentColor" stroke-width="1.5"/></svg><span>OCEAN</span></a>
+    <nav class="chapters" aria-label="选择下潜位置"><button data-jump="0" aria-current="location">海面</button><button data-jump="0.38">入水</button><button data-jump="0.76">水下</button></nav>
+    <button class="explore-top" data-jump="0.72">探索海洋 <span aria-hidden="true">↗</span></button>
+  </header>
+  <main id="journey" aria-label="向下滚动，潜入海洋">
+    <section id="surface" class="hero" aria-label="海洋漫游">
+      <div class="story"><p class="edition">FEEL THE WORLD SLOW DOWN</p><h1>Closer to<br>the ocean.</h1><p class="description">A moment of stillness.<br>An endless sense of possibility.</p><div class="hero-actions"><button class="primary" data-jump="0.72">Explore the ocean <span aria-hidden="true">→</span></button><button class="approach" data-jump="0.38"><span class="arrow-circle" aria-hidden="true">↓</span> 靠近水面</button></div></div>
+    </section>
+  </main>
+  <aside class="depth" aria-label="下潜进度"><div class="depth-number"><span id="depth-value">00</span><span class="unit">m</span></div><span class="depth-label">下潜深度</span><div class="depth-track" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><span id="depth-marker"></span></div><span class="depth-end">60 m</span></aside>
+  <footer class="footer"><div class="live-control">    <button id="pause" class="icon-button" aria-label="暂停海洋动画" aria-pressed="false"><svg class="pause-icon" width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M6 4V14M12 4V14" stroke="currentColor" stroke-width="1.5"/></svg><svg class="play-icon" width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M6 3.5L14 9L6 14.5V3.5Z" stroke="currentColor" stroke-width="1.3"/></svg></button><span id="location-label">LIVE AT SEA</span></div><button id="dive" class="dive-cue" data-jump="0.72"><span id="cue-label">SCROLL TO EXPLORE</span><svg width="18" height="24" viewBox="0 0 18 24" fill="none" aria-hidden="true"><path d="M9 1v19m-5-5 5 5 5-5" stroke="currentColor" stroke-width="1.2"/></svg></button></footer>
+  <div id="fallback" class="fallback" hidden><p>当前浏览器无法绘制海洋画面。</p><p>请使用支持 WebGL 的浏览器，并开启硬件加速。</p><button onclick="location.reload()">重新加载</button></div>
+  <noscript><div class="fallback">请开启 JavaScript，体验可交互的海洋漫游。</div></noscript>
+</body>
+</html>
